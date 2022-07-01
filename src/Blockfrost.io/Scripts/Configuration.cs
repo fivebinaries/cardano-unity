@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using System.Linq;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 namespace Blockfrost {
 
@@ -71,28 +67,4 @@ namespace Blockfrost {
         public int CurrentServerIndex { get => _currentServerIndex; set => _currentServerIndex = value; }
         public Server CurrentServer { get => servers[CurrentServerIndex]; }
     }
-
-#if UNITY_EDITOR
-    [CustomEditor(typeof(Configuration))]
-    public class ConfigurationEditor : Editor {
-        public override void OnInspectorGUI() {
-            base.OnInspectorGUI();
-
-            var conf = target as Configuration;
-            var _servers = conf.servers.Select(s => s.Name).ToArray();
-
-            GUILayout.Label("Current server:");
-            int _currentServerIndex = conf.CurrentServerIndex;
-            conf.CurrentServerIndex = EditorGUILayout.Popup(conf.CurrentServerIndex, _servers);
-
-            EditorGUI.BeginDisabledGroup(true);
-            EditorGUILayout.TextField("Url", conf.CurrentServer.Url);
-            EditorGUILayout.Separator();
-            // TODO OAInfo
-            EditorGUI.EndDisabledGroup();
-
-            EditorUtility.SetDirty(target);
-        }
-    }
-#endif
 }
