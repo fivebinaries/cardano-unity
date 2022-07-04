@@ -64,7 +64,16 @@ namespace Blockfrost {
 
         public OAInfo info;
 
-        public int CurrentServerIndex { get => _currentServerIndex; set => _currentServerIndex = value; }
+        public int CurrentServerIndex { get => _currentServerIndex; protected set => _currentServerIndex = value; }
         public Server CurrentServer { get => servers[CurrentServerIndex]; }
+
+        public void ChangeServer(int index) {
+            if (index >= servers.Count) {
+                Debug.LogError($"Invalid server index {index}");
+                return;
+            }
+            CurrentServerIndex = index;
+        }
+
     }
 }

@@ -12,7 +12,8 @@ public class ConfigurationEditor : Editor {
 
         GUILayout.Label("Current server:");
         int _currentServerIndex = conf.CurrentServerIndex;
-        conf.CurrentServerIndex = EditorGUILayout.Popup(conf.CurrentServerIndex, _servers);
+        int selected = EditorGUILayout.Popup(conf.CurrentServerIndex, _servers);
+        conf.ChangeServer(selected);
 
         EditorGUI.BeginDisabledGroup(true);
         EditorGUILayout.TextField("Url", conf.CurrentServer.Url);
