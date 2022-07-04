@@ -4,7 +4,7 @@ Simple demo using Nami wallet + blockfrost.io API client. Checks for specific to
 
 ### Demo
 
-Demo can be played [here](...)
+Demo can be played [here](https://fivebinaries.github.io/cardano-unity/src/Examples/Demo/)
 
 ### Credits
 
