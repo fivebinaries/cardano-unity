@@ -1,0 +1,16 @@
+{
+    "name": "Blockfrost.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:be4fcdd22dd41994392923b08dd8863f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

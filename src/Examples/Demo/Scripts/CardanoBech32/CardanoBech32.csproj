@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/tigrpoolcom/CardanoBech32Wrapper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tigrpoolcom/CardanoBech32Wrapper</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>https://github.com/tigrpoolcom</Authors>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

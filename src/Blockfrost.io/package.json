@@ -1,0 +1,12 @@
+{
+    "name": "io.blockfrost.api",
+    "displayName": "Blockfrost.io API",
+    "author": { "name": "Blockfrost Team", "email": "contact@blockfrost.io", "url": "https://blockfrost.io" },
+    "version": "0.0.1",
+    "unity": "2018.4",
+    "description": "API Client for interacting with Cardano blockchain using Blockfrost.io API",
+    "keywords": [ "cardano", "api", "blockchain" ],
+    "license": "MIT",
+    "category": "API",
+    "dependencies": {}
+}
