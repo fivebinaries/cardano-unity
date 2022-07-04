@@ -11,5 +11,5 @@ Generator for Blockfrost.io Unity Assset.
 
 ### Credits
 
-Inspired by https://github.com/kolodi/UnityOpenApi
-Built using https://github.com/microsoft/OpenAPI.NET
+- Inspired by https://github.com/kolodi/UnityOpenApi
+- Built using https://github.com/microsoft/OpenAPI.NET

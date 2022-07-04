@@ -30,9 +30,9 @@ You can copy [Blockfrost.io](src/Blockfrost.io) folder into your project. Instal
 3. In your MonoBehaviour create new instance of `Blockfrost.API` by passing in reference to your configuration
 4. You can now call the API
 
-### Example
+#### Example
 
-```
+```csharp
 var config = new Blockfrost.Configuration{
 	ProjectID = myProjectID;
 };
@@ -41,16 +41,16 @@ var latestBlock = await client.GetLatestBlock();
 Debug.Log(response.hash);
 ```
 
-### Listing
+#### Listing
 
 Some endpoints allow certain listing operations (number of items in a list, order, ...). There are three filters available
 `Blockfrost.Listing`, `Blockfrost.OrderedListing`, and `Blockfrost.TargetableOrderedListing` that can be passed to specific methods.
 
-```
+```csharp
 api.GetBlockTransactions(hash, new Listing{count = 10})
 ```
 
-### Errors
+#### Errors
 
 Errors from `UnityWebRequest` are returned as is.
 
