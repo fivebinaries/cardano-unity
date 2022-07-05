@@ -72,4 +72,4 @@ Errors from `UnityWebRequest` are returned as is.
 
 ## Demo
 
-Demo using [Nami wallet](https://namiwallet.io/) can be found [here](https://fivebinaries.github.io/cardano-unity/src/Examples/Demo/) and its sources [here](src/Examples).
+Demo using [Nami wallet](https://namiwallet.io/) can be found [here](https://fivebinaries.github.io/cardano-unity/src/Examples/Demo/) and its sources [here](src/Examples). In this simple game, the door won't open until your wallet contains a specific NFT.
