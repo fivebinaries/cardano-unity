@@ -1,3 +1,6 @@
+<img src=".github/assets/unity_cardano_network.png" align="right" height="250" />
+
+
 <a href="https://fivebinaries.com/"><img src="https://img.shields.io/badge/made%20by-Five%20Binaries-darkviolet.svg?style=flat-square" /></a>
 
 # Cardano games assets for Unity
@@ -36,7 +39,7 @@ You can copy [Blockfrost.io](src/Blockfrost.io) folder into your project. Instal
 
 ### Getting started
 
-1. Get your own `PROJECT_ID` from [blockfrost.dev](https://blockfrost.dev/docs/overview/getting-started#creating-first-project)
+1. Get your own `PROJECT_ID` from [blockfrost.io](https://blockfrost.dev/docs/overview/getting-started#creating-first-project)
 2. Create configuration _Create_ → _Blockfrost.io API_ → _Configuration_ and fill in the `PROJECT_ID`
 3. In your MonoBehaviour create new instance of _Blockfrost.API_ by passing in reference to your configuration
 4. You can now call the API and access the Cardano blockchain
