@@ -430,46 +430,16 @@ namespace Blockfrost {
         public int max_collateral_inputs;
 
         /// <summary>
-        /// The cost per UTxO word
+        /// Cost per UTxO word for Alonzo. Cost per UTxO byte for Babbage and later.
+        /// </summary>
+        public string coinsPerUtxoSize { get => coins_per_utxo_size; }
+        public string coins_per_utxo_size;
+
+        /// <summary>
+        /// Cost per UTxO word for Alonzo. Cost per UTxO byte for Babbage and later.
         /// </summary>
         public string coinsPerUtxoWord { get => coins_per_utxo_word; }
         public string coins_per_utxo_word;
-
-    }
-
-    [Serializable]
-    public class EpochStakeContent {
-        /// <summary>
-        /// Stake address
-        /// </summary>
-        public string stakeAddress { get => stake_address; }
-        public string stake_address;
-
-        /// <summary>
-        /// Bech32 prefix of the pool delegated to
-        /// </summary>
-        public string poolId { get => pool_id; }
-        public string pool_id;
-
-        /// <summary>
-        /// Amount of active delegated stake in Lovelaces
-        /// </summary>
-        public string amount;
-
-    }
-
-    [Serializable]
-    public class EpochStakePoolContent {
-        /// <summary>
-        /// Stake address
-        /// </summary>
-        public string stakeAddress { get => stake_address; }
-        public string stake_address;
-
-        /// <summary>
-        /// Amount of active delegated stake in Lovelaces
-        /// </summary>
-        public string amount;
 
     }
 
@@ -655,9 +625,26 @@ namespace Blockfrost {
         public string data_hash;
 
         /// <summary>
+        /// CBOR encoded inline datum
+        /// </summary>
+        public string inlineDatum { get => inline_datum; }
+        public string inline_datum;
+
+        /// <summary>
+        /// The hash of the reference script of the input
+        /// </summary>
+        public string referenceScriptHash { get => reference_script_hash; }
+        public string reference_script_hash;
+
+        /// <summary>
         /// Whether the input is a collateral consumed on script validation failure
         /// </summary>
         public bool collateral;
+
+        /// <summary>
+        /// Whether the input is a reference transaction input
+        /// </summary>
+        public bool reference;
 
     }
 
@@ -681,6 +668,18 @@ namespace Blockfrost {
         /// </summary>
         public string dataHash { get => data_hash; }
         public string data_hash;
+
+        /// <summary>
+        /// CBOR encoded inline datum
+        /// </summary>
+        public string inlineDatum { get => inline_datum; }
+        public string inline_datum;
+
+        /// <summary>
+        /// The hash of the reference script of the output
+        /// </summary>
+        public string referenceScriptHash { get => reference_script_hash; }
+        public string reference_script_hash;
 
     }
 
@@ -978,6 +977,12 @@ namespace Blockfrost {
         /// </summary>
         public string scriptHash { get => script_hash; }
         public string script_hash;
+
+        /// <summary>
+        /// Redeemer data hash
+        /// </summary>
+        public string redeemerDataHash { get => redeemer_data_hash; }
+        public string redeemer_data_hash;
 
         /// <summary>
         /// Datum hash
@@ -1415,6 +1420,18 @@ namespace Blockfrost {
         /// </summary>
         public string dataHash { get => data_hash; }
         public string data_hash;
+
+        /// <summary>
+        /// CBOR encoded inline datum
+        /// </summary>
+        public string inlineDatum { get => inline_datum; }
+        public string inline_datum;
+
+        /// <summary>
+        /// The hash of the reference script of the output
+        /// </summary>
+        public string referenceScriptHash { get => reference_script_hash; }
+        public string reference_script_hash;
 
     }
 
@@ -1865,6 +1882,11 @@ namespace Blockfrost {
 
     [Serializable]
     public class ScriptCbor {
+        /// <summary>
+        /// CBOR contents of the `plutus` script, null for `timelocks`
+        /// </summary>
+        public string cbor;
+
     }
 
     [Serializable]
@@ -1885,6 +1907,12 @@ namespace Blockfrost {
         /// Validation purpose
         /// </summary>
         public string purpose;
+
+        /// <summary>
+        /// Datum hash of the redeemer
+        /// </summary>
+        public string redeemerDataHash { get => redeemer_data_hash; }
+        public string redeemer_data_hash;
 
         /// <summary>
         /// Datum hash
@@ -1913,6 +1941,15 @@ namespace Blockfrost {
 
     [Serializable]
     public class ScriptDatum {
+    }
+
+    [Serializable]
+    public class ScriptDatumCbor {
+        /// <summary>
+        /// CBOR serialized datum
+        /// </summary>
+        public string cbor;
+
     }
 
     [Serializable]
