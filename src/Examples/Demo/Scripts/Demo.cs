@@ -12,7 +12,7 @@ public class Demo : MonoBehaviour {
     [SerializeField]
     public Configuration myConfiguration;
 
-    private API client;
+    private Cardano client;
     private Console console;
     private UI ui;
 
@@ -46,7 +46,7 @@ public class Demo : MonoBehaviour {
         ui = GetComponent<UI>();
         door = FindObjectOfType<Door>();
 
-        client = new API(myConfiguration);
+        client = new Blockfrost.Cardano(myConfiguration);
 
         connect.interactable = true;
     }

@@ -66,17 +66,13 @@ namespace BlockfrostGen {
             }
             sb.AppendLine("}");
 
-            File.WriteAllText($"./BFModels.cs", sb.ToString());
+            File.WriteAllText($"./CardanoModels.cs", sb.ToString());
         }
 
         void CreateConfiguration(OpenApiDocument doc) {
             var config = ScriptableObject.CreateInstance<Blockfrost.Configuration>();
-            config.servers = doc.Servers.Select(s => new Blockfrost.Server{
-                Name = s.Description,
-                Url = s.Url,
-            }).ToList();
             
-            config.info = new Blockfrost.OAInfo{
+            var info = new Blockfrost.OAInfo{
                 Title = doc.Info.Title,
                 Description = doc.Info.Description,
                 Version = doc.Info.Version,
@@ -92,16 +88,16 @@ namespace BlockfrostGen {
                 }
             };
 
-            AssetDatabase.CreateAsset(config, "Assets/Scripts/Blockfrost/BlockfrostConfiguration.asset");
+            AssetDatabase.CreateAsset(info, "Assets/Scripts/Blockfrost/BlockfrostInfo.asset");
         }
 
         void GenerateAPI() {
             var sb = new StringBuilder();
             Imports(sb, new[] { "System.Collections.Generic", "Cysharp.Threading.Tasks" });
             sb.AppendLine($"namespace {bfNamespace} {{");
-            sb.AppendLine("public class API : Client {");
-            sb.AppendLine("public API() : base() { }");
-            sb.AppendLine("public API(Configuration config) : base(config) { }");
+            sb.AppendLine("public class Cardano : Client {");
+            sb.AppendLine("public Cardano() : base() { }");
+            sb.AppendLine("public Cardano(Configuration config) : base(config) { }");
 
             foreach (var endpoint in Endpoints) {
                 var e = endpoint.Serialize();
@@ -112,7 +108,7 @@ namespace BlockfrostGen {
             sb.AppendLine("}");
             sb.AppendLine("}");
 
-            File.WriteAllText("./BFAPI.cs", sb.ToString());
+            File.WriteAllText("./Cardano.cs", sb.ToString());
         }
 
         void Imports(StringBuilder sb, string[] imports) {
@@ -139,6 +135,11 @@ namespace BlockfrostGen {
                         Summary = op.Value.Summary,
                         ReturnsArray = false,
                     };
+
+                    if (op.Value.Deprecated == true) {
+                        Debug.Log($"Skipping deprecated endpoint {path}");
+                        continue;
+                    }
 
                     // Parameters
                     endpoint.Params = new List<Param>();
