@@ -11,7 +11,8 @@ It is a lighthweight Unity-specific client for interacting with blockfrost.io AP
 
 <p align="center">
   <a href="#installation">Installation</a> •
-  <a href="#usage">Usage</a> •
+  <a href="#cardano-api">Cardano</a> •
+  <a href="#milkomeda-api">Milkomeda</a> •
   <a href="#demo">Demo</a> 
 </p>
 <br><br>
