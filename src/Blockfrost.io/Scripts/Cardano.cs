@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
 namespace Blockfrost {
-    public class API : Client {
-        public API() : base() { }
-        public API(Configuration config) : base(config) { }
+    public class Cardano : Client {
+        public Cardano() : base() { }
+        public Cardano(Configuration config) : base(config) { }
         /// <summary>
         /// Root endpoint has no other function than to point end users to documentation.
         /// </summary>
@@ -217,34 +217,6 @@ namespace Blockfrost {
                 {"number", number},
             };
             return await GetArray<EpochContent>(path, pathParams, query);
-        }
-
-        /// <summary>
-        /// Return the active stake distribution for the specified epoch.
-        /// </summary>
-        /// <remarks>GET /epochs/{number}/stakes</remarks>
-        /// <param name="number">Number of the epoch</param>
-        public async UniTask<EpochStakeContent[]> GetStakeDistribution(int number, Listing query = null) {
-            const string path = "/epochs/{number}/stakes";
-            var pathParams = new Dictionary<string, object>(){
-                {"number", number},
-            };
-            return await GetArray<EpochStakeContent>(path, pathParams, query);
-        }
-
-        /// <summary>
-        /// Return the active stake distribution for the epoch specified by stake pool.
-        /// </summary>
-        /// <remarks>GET /epochs/{number}/stakes/{pool_id}</remarks>
-        /// <param name="number">Number of the epoch</param>
-        /// <param name="poolId">Stake pool ID to filter</param>
-        public async UniTask<EpochStakePoolContent[]> GetStakeDistributionByPool(int number, string poolId, Listing query = null) {
-            const string path = "/epochs/{number}/stakes/{pool_id}";
-            var pathParams = new Dictionary<string, object>(){
-                {"number", number},
-                {"pool_id", poolId},
-            };
-            return await GetArray<EpochStakePoolContent>(path, pathParams, query);
         }
 
         /// <summary>
@@ -669,22 +641,9 @@ namespace Blockfrost {
         /// <summary>
         /// Transactions on the address.
         /// </summary>
-        /// <remarks>GET /addresses/{address}/txs</remarks>
-        /// <param name="address">Bech32 address.</param>
-        public async UniTask<string[]> GetAddressTransactions(string address, OrderedListing query = null) {
-            const string path = "/addresses/{address}/txs";
-            var pathParams = new Dictionary<string, object>(){
-                {"address", address},
-            };
-            return await GetArray<string>(path, pathParams, query);
-        }
-
-        /// <summary>
-        /// Transactions on the address.
-        /// </summary>
         /// <remarks>GET /addresses/{address}/transactions</remarks>
         /// <param name="address">Bech32 address.</param>
-        public async UniTask<AddressTransactionsContent[]> GetAddressTransactionsDetails(string address, TargetableOrderedListing query = null) {
+        public async UniTask<AddressTransactionsContent[]> GetAddressTransactions(string address, TargetableOrderedListing query = null) {
             const string path = "/addresses/{address}/transactions";
             var pathParams = new Dictionary<string, object>(){
                 {"address", address},
@@ -849,22 +808,9 @@ namespace Blockfrost {
         /// <summary>
         /// List of a specific asset transactions
         /// </summary>
-        /// <remarks>GET /assets/{asset}/txs</remarks>
-        /// <param name="asset">Concatenation of the policy_id and hex-encoded asset_name</param>
-        public async UniTask<string[]> GetAssetTransactions(string asset, OrderedListing query = null) {
-            const string path = "/assets/{asset}/txs";
-            var pathParams = new Dictionary<string, object>(){
-                {"asset", asset},
-            };
-            return await GetArray<string>(path, pathParams, query);
-        }
-
-        /// <summary>
-        /// List of a specific asset transactions
-        /// </summary>
         /// <remarks>GET /assets/{asset}/transactions</remarks>
         /// <param name="asset">Concatenation of the policy_id and hex-encoded asset_name</param>
-        public async UniTask<AssetTransactions[]> GetAssetTransactionsDetails(string asset, OrderedListing query = null) {
+        public async UniTask<AssetTransactions[]> GetAssetTransactions(string asset, OrderedListing query = null) {
             const string path = "/assets/{asset}/transactions";
             var pathParams = new Dictionary<string, object>(){
                 {"asset", asset},
@@ -971,6 +917,19 @@ namespace Blockfrost {
                 {"datum_hash", datumHash},
             };
             return await Get<ScriptDatum>(path, pathParams);
+        }
+
+        /// <summary>
+        /// Query CBOR serialised datum by its hash
+        /// </summary>
+        /// <remarks>GET /scripts/datum/{datum_hash}/cbor</remarks>
+        /// <param name="datumHash">Hash of the datum</param>
+        public async UniTask<ScriptDatumCbor> GetDatumCBORValue(string datumHash) {
+            const string path = "/scripts/datum/{datum_hash}/cbor";
+            var pathParams = new Dictionary<string, object>(){
+                {"datum_hash", datumHash},
+            };
+            return await Get<ScriptDatumCbor>(path, pathParams);
         }
 
         /// <summary>
