@@ -45,7 +45,8 @@ namespace Blockfrost {
         private int _currentNetworkIndex;
         public int CurrentNetworkIndex { get => _currentNetworkIndex; protected set => _currentNetworkIndex = value; }
 
-        public Server CurrentServer { get => servers[CurrentApi][CurrentNetworkIndex]; }
+        public List<Server> CurrentApiServers { get => servers[CurrentApi]; }
+        public Server CurrentServer { get => CurrentApiServers[CurrentNetworkIndex]; }
 
         [SerializeField]
         [HideInInspector]
@@ -58,6 +59,14 @@ namespace Blockfrost {
                 new Server{
                     Network = "Testnet",
                     Url = "cardano-testnet.blockfrost.io/api/v0",
+                },
+                new Server{
+                    Network = "Preprod",
+                    Url = "cardano-preprod.blockfrost.io/api/v0",
+                },
+                new Server{
+                    Network = "Preview",
+                    Url = "cardano-preview.blockfrost.io/api/v0",
                 },
             }}, {
             MilkomedaApi, new List<Server>{
@@ -80,7 +89,7 @@ namespace Blockfrost {
         }
 
         public void ChangeNetwork(int index) {
-            if (index >= servers.Count) {
+            if (index >= CurrentApiServers.Count) {
                 Debug.LogError($"Invalid network index {index}");
                 return;
             }
