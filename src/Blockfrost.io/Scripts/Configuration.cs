@@ -45,7 +45,8 @@ namespace Blockfrost {
         private int _currentNetworkIndex;
         public int CurrentNetworkIndex { get => _currentNetworkIndex; protected set => _currentNetworkIndex = value; }
 
-        public Server CurrentServer { get => servers[CurrentApi][CurrentNetworkIndex]; }
+        public List<Server> CurrentApiServers { get => servers[CurrentApi]; }
+        public Server CurrentServer { get => CurrentApiServers[CurrentNetworkIndex]; }
 
         [SerializeField]
         [HideInInspector]
@@ -88,7 +89,7 @@ namespace Blockfrost {
         }
 
         public void ChangeNetwork(int index) {
-            if (index >= servers.Count) {
+            if (index >= CurrentApiServers.Count) {
                 Debug.LogError($"Invalid network index {index}");
                 return;
             }
