@@ -2,7 +2,9 @@ using System;
 using System.Linq;
 
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEngine;
+
 
 [CustomEditor(typeof(Blockfrost.Configuration))]
 public class ConfigurationEditor : Editor {
@@ -31,3 +33,4 @@ public class ConfigurationEditor : Editor {
         EditorUtility.SetDirty(target);
     }
 }
+#endif
