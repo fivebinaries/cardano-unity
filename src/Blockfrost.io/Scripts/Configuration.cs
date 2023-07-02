@@ -56,9 +56,13 @@ namespace Blockfrost {
                     Url = "cardano-mainnet.blockfrost.io/api/v0",
                 },
                 new Server{
-                    Network = "Testnet",
-                    Url = "cardano-testnet.blockfrost.io/api/v0",
+                    Network = "Preview",
+                    Url = "cardano-preview.blockfrost.io/api/v0",
                 },
+                // new Server{
+                //     Network = "Testnet",
+                //     Url = "cardano-testnet.blockfrost.io/api/v0",
+                // },
             }}, {
             MilkomedaApi, new List<Server>{
                 new Server{
