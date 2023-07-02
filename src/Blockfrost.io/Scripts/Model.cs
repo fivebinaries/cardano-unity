@@ -1720,6 +1720,11 @@ namespace Blockfrost {
         /// Name of the asset
         /// </summary>
         public string name;
+        public string image;
+        public string description
+        public string url
+        public string logo
+        public string ticker
 
     }
 
