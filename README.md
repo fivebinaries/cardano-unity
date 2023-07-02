@@ -3,7 +3,12 @@
 
 <a href="https://fivebinaries.com/"><img src="https://img.shields.io/badge/made%20by-Five%20Binaries-darkviolet.svg?style=flat-square" /></a>
 
-# Cardano games assets for Unity
+# Cardano games assets for Unity (fork)
+
+### SIMPLE CHANGES
+ * wrapped an if around a custom editor script to allow for builds as prior you would get an error building with the custom editor script.
+ * set a preview option instead of a testnet option for the blockfrost api
+
 
 This repository contains the code and configuration files of Cardano game assets for Unity.
 
