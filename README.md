@@ -28,7 +28,7 @@ We're going to publish this package to the Asset Story in the near future.
 Client can be installed using Unity Package Manager using git.
 
 * Go to Package Manager, select *Add package from git URL...* 
-* Enter `https://github.com/fivebinaries/cardano-unity.git?path=src/Blockfrost.io`
+* Enter `https://github.com/Tknott95/cardano-unity.git?path=src/Blockfrost.io`
 
 NOTE: Dependancy has to be installed manually if they are missing, see [Installing UniTask](https://github.com/Cysharp/UniTask#install-via-git-url).
 
