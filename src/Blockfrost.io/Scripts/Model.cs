@@ -1727,19 +1727,19 @@ namespace Blockfrost {
         /// <summary>
         /// Description of the asset
         /// </summary>
-        public string description
+        public string description;
         /// <summary>
         /// Url for a fungible
         /// </summary>
-        public string url
+        public string url;
         // <summary>
         /// Logo for a fungible
         /// </summary>
-        public string logo
+        public string logo;
         /// <summary>
         /// Ticker for a fungible
         /// </summary>
-        public string ticker
+        public string ticker;
     }
 
     [Serializable]
