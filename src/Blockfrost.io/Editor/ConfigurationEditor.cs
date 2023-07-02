@@ -5,7 +5,6 @@ using UnityEditor;
 #if UNITY_EDITOR
 using UnityEngine;
 
-
 [CustomEditor(typeof(Blockfrost.Configuration))]
 public class ConfigurationEditor : Editor {
     public override void OnInspectorGUI() {
