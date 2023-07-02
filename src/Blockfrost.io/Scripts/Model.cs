@@ -1740,6 +1740,7 @@ namespace Blockfrost {
         /// Ticker for a fungible
         /// </summary>
         public string ticker;
+
     }
 
     [Serializable]
