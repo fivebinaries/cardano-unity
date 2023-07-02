@@ -1720,6 +1720,26 @@ namespace Blockfrost {
         /// Name of the asset
         /// </summary>
         public string name;
+        /// <summary>
+        /// Ipfs image of the asset
+        /// </summary>
+        public string image;
+        /// <summary>
+        /// Description of the asset
+        /// </summary>
+        public string description;
+        /// <summary>
+        /// Url for a fungible
+        /// </summary>
+        public string url;
+        // <summary>
+        /// Logo for a fungible
+        /// </summary>
+        public string logo;
+        /// <summary>
+        /// Ticker for a fungible
+        /// </summary>
+        public string ticker;
 
     }
 

@@ -3,7 +3,7 @@
 
 <a href="https://fivebinaries.com/"><img src="https://img.shields.io/badge/made%20by-Five%20Binaries-darkviolet.svg?style=flat-square" /></a>
 
-# Cardano games assets for Unity
+# Cardano games assets for Unity 
 
 This repository contains the code and configuration files of Cardano game assets for Unity.
 
